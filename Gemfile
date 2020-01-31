@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # Database
 gem 'mongoid'
 
+# Twitter API
+gem 'twitter', github: 'sferik/twitter'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
