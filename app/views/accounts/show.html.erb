@@ -11,6 +11,8 @@
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>
     <% end %>
 
+    <%= paginate @tweets %>
+
     <% unless @tweets.present? %>
       <p>
         No Tweets.
