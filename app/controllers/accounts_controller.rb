@@ -6,5 +6,6 @@ class AccountsController < ApplicationController
   def show
     @accounts = Account.all
     @account = Account.find(params[:id])
+    @tweets = @account.tweets.page(1)
   end
 end
