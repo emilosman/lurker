@@ -11,7 +11,11 @@
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>
     <% end %>
 
-    <%= paginate @tweets %>
+    <div class="row">
+      <div class="col-12 text-center">
+        <%= paginate @tweets %>
+      </div>
+    </div>
 
     <% unless @tweets.present? %>
       <p>
