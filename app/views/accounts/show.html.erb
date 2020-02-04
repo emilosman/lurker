@@ -5,20 +5,13 @@
 
   <div class="col-10">
     <% @account.tweets.each do |tweet| %>
-      <div class="row">
-        <div class="col-12">
-          <div class="card bg-dark mb-2">
-            <div class="card-body">
-              <p class="card-text">
-                <%= tweet.full_text %>
-              </p>
-              <small>
-                <%= link_to tweet.tweeted_at, tweet.url, class:'info-link' %>
-              </small>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "components/tweet", locals:{tweet: tweet} %>
+    <% end %>
+
+    <% unless @account.tweets.present? %>
+      <p>
+        No Tweets.
+      </p>
     <% end %>
   </div>
 </div>
