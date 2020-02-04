@@ -11,7 +11,7 @@
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>
     <% end %>
 
-    <% unless @account.tweets.present? %>
+    <% unless @tweets.present? %>
       <p>
         No Tweets.
       </p>
