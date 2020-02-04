@@ -1,6 +1,10 @@
 .account-list__image {
   position: relative;
   display: inline-block;
+
+  &--active {
+    border: 3px solid #0ce3ac;
+  }
 }
 
 .account-list__badge {

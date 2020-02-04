@@ -3,7 +3,9 @@
     <div class="col-12">
       <%= link_to account_path(account.id) do %>
         <div class="account-list__image mr-2">
-          <img src="<%= account.profile_image_url %>" class="rounded-circle">
+          <img src="<%= account.profile_image_url %>" class="rounded-circle
+            <%= 'account-list__image--active' if @account && account.id == @account.id %> "
+          >
           <span class="badge badge-info account-list__badge">
             <%= account.unread_count %>
           </span>
