@@ -4,6 +4,9 @@
   </div>
 
   <div class="col-10">
+    <h3 class="mt-2">
+      <%= link_to @account.name, @account.url %>
+    </h3>
     <% @account.tweets.each do |tweet| %>
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>
     <% end %>

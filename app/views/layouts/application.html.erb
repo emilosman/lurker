@@ -12,20 +12,6 @@
 
   <body>
     <div class="container">
-      <header class="row">
-        <div class="col-2">
-          <h1>
-            <%= link_to "Lurker", root_path %>
-          </h1>
-        </div>
-        <% if @account %>
-          <div class="col-10">
-            <h3>
-              <%= link_to @account.name, @account.url %>
-            </h3>
-          </div>
-        <% end %>
-      </header>
       <%= yield %>
     </div>
   </body>
