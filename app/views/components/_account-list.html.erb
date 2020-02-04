@@ -1,18 +1,16 @@
 <% @accounts.each do |account| %>
-  <div class="row mb-4">
-    <div class="col-12">
-      <%= link_to account_path(account.id) do %>
+  <div class="row my-4">
+      <%= link_to account_path(account.id), class:'col-12' do %>
         <div class="account-list__image mr-2">
-          <img src="<%= account.profile_image_url %>" class="rounded-circle
-            <%= 'account-list__image--active' if @account && account.id == @account.id %> "
+          <img src="<%= account.profile_image_url %>"
+              class="rounded-circle
+              <%= 'account-list__image--active' if @account && account.id == @account.id %>"
           >
           <span class="badge badge-info account-list__badge">
             <%= account.unread_count %>
           </span>
         </div>
-
         <%= account.name %>
       <% end %>
-    </div>
   </div>
 <% end %>
