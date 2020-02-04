@@ -1,1 +1,28 @@
-hello
+<div class="row">
+  <div class="col-2">
+    <ul>
+      <% @accounts.each do |account| %>
+        <li>
+          <%= link_to account_path(account.id) do %>
+            <img src="<%= account.profile_image_url %>">
+            <%= account.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-10">
+    <% @account.tweets.each do |tweet| %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-2">
+            <div class="card-body">
+              <%= tweet.full_text %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

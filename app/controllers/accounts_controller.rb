@@ -1,5 +1,10 @@
 class AccountsController < ApplicationController
-  def index;end
+  def index
+    @accounts = Account.all
+  end
   
-  def show;end
+  def show
+    @accounts = Account.all
+    @account = Account.find(params[:id])
+  end
 end

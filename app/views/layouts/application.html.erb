@@ -12,10 +12,19 @@
 
   <body>
     <div class="container">
-      <header>
-        <h1 class="text-center">
-          Lurker
-        </h1>
+      <header class="row">
+        <div class="col-2">
+          <h1>
+            Lurker
+          </h1>
+        </div>
+        <% if @account %>
+          <div class="col-10">
+            <h2>
+              <%= @account.name%>
+            </h2>
+          </div>
+        <% end %>
       </header>
       <%= yield %>
     </div>

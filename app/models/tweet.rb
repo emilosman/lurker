@@ -1,6 +1,13 @@
 class Tweet
   include Mongoid::Document
-  field :text, type: String
+  field :favorite_count, type: Integer
+  field :retweet_count, type: Integer
+  field :full_text, type: String
+  field :tweet_id, type: String
+  field :url, type: String
+  field :tweeted_at, type: String
+  field :tweeted_at, type: String
+  field :read, type: Boolean, default: false
 
   belongs_to :account
 end

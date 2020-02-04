@@ -13,10 +13,49 @@ end
 
 def client.get_all_tweets(user)
   collect_with_max_id do |max_id|
-    options = {count: 200, include_rts: true}
+    options = {count: 1, tweet_mode: "extended", include_rts: false}
     options[:max_id] = max_id unless max_id.nil?
     user_timeline(user, options)
   end
 end
 
 client.get_all_tweets("emil_graphics")
+
+user_names = ['emil_graphics', 'BPD_GOD', 'bronzeagemantis']
+
+user_names.each do |user_name|
+  user = client.user(user_name)
+
+  account = Account.find_or_create_by(
+    twitter_id: user.id
+  )
+
+  account.update_attributes(
+    name: user.name,
+    screen_name: user.screen_name,
+    twitter_id: user.id,
+    url: user.url.to_s,
+    profile_image_url: user.profile_image_url.to_s
+  )
+end
+
+account = Account.last
+
+tweets = client.get_all_tweets(account.screen_name)
+
+tweets.each do |tw|
+  tweet = Tweet.find_or_create_by(
+    account: account,
+    tweet_id: tw.id
+  )
+
+  tweet.update_attributes(
+    favorite_count: tw.favorite_count,
+    retweet_count: tw.retweet_count,
+    full_text: tw.attrs[:full_text],
+    url: tw.url.to_s,
+    tweeted_at: tw.created_at
+  )
+end
+
+
