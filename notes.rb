@@ -58,4 +58,10 @@ tweets.each do |tw|
   )
 end
 
+Account.all.each do |account|
+  account.update_attributes(
+    unread_count: account.tweets.count
+  )
+end
+
 

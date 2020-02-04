@@ -5,6 +5,7 @@ class Account
   field :twitter_id, type: String
   field :url, type: String
   field :profile_image_url, type: String
+  field :unread_count, type: Integer
 
   has_many :tweets
 end

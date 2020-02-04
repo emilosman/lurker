@@ -1,15 +1,6 @@
 <div class="row">
   <div class="col-2">
-    <ul>
-      <% @accounts.each do |account| %>
-        <li>
-          <%= link_to account_path(account.id) do %>
-            <img src="<%= account.profile_image_url %>">
-            <%= account.name %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render partial: "components/account-list" %>
   </div>
 
   <div class="col-10">
