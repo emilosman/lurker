@@ -34,6 +34,6 @@ class AccountsController < ApplicationController
   private
   def get_account
     @accounts = Account.all
-    @account = Account.find(params[:id])
+    @account = Account.find(params[:id]) if params[:id]
   end
 end
