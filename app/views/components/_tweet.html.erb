@@ -12,7 +12,7 @@
 
         <% if tweet.media.present? %>
           <div class="row mb-2">
-            <% tweet.media[0].each do |url| %>
+            <% tweet.media.each do |url| %>
               <div class="col">
                 <%= link_to url, target:"_blank" do %>
                   <%= image_tag url, class:"tweet__image" %>
