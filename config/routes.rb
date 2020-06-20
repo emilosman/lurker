@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
       get 'starred'
       get 'unread'
+      get 'media'
       post 'refresh_tweets'
     end
   end

@@ -13,6 +13,7 @@ class Tweet
 
   scope :starred, ->{ where(starred: true) }
   scope :unread, ->{ where(read: false) }
+  scope :with_media, ->{ where(:media.nin => [[], "", nil]) }
 
   belongs_to :account
 end

@@ -49,6 +49,15 @@ class AccountsController < ApplicationController
     render 'show'
   end
 
+  def media
+    @tweets = @account.tweets.with_media.page params[:page]
+    @tweets.map{|a| a.update_attributes(read: true)}
+    @account.update_attributes(
+      unread_count: @account.tweets.where(read: false).count
+    )
+    render 'show'
+  end
+
   def refresh_tweets
     if account = Account.find(params[:id])
       account.fetch_tweets

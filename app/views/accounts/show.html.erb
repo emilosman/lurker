@@ -25,6 +25,11 @@
           <% end %>
         </li>
         <li>
+          <%= link_to media_account_path(@account)do %>
+            [media]
+          <% end %>
+        </li>
+        <li>
           <%= link_to @account.url do %>
             [open]
           <% end %>
