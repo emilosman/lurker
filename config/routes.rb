@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :tweets do
+    collection do
+      get 'starred'
+    end
     member do
       post 'star'
     end

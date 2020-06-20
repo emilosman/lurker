@@ -2,6 +2,26 @@ class AccountsController < ApplicationController
   before_action :get_account
 
   def index;end
+
+  def new;end
+
+  def create
+    if params[:username]
+      user = CLIENT.user(params[:username])
+
+      account = Account.find_or_create_by(
+        twitter_id: user.id
+      )
+
+      account.update_attributes(
+        name: user.name,
+        screen_name: user.screen_name,
+        twitter_id: user.id,
+        url: user.url.to_s,
+        profile_image_url: user.profile_image_url.to_s
+      )
+    end
+  end
   
   def show
     @tweets = @account.tweets.page params[:page]

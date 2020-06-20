@@ -4,18 +4,22 @@
   </div>
 
   <div class="col-10">
-    <h3 class="mt-2">
-      <%= link_to @account.name, @account %>
-      <small>
-        <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
-          [refresh]
-        <% end %>
+    <% if @account %>
+      <h3 class="mt-4">
+        <%= link_to @account.name, @account %>
+        <small>
+          <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
+            [refresh]
+          <% end %>
 
-        <%= link_to starred_account_path(@account)do %>
-          [starred]
-        <% end %>
-      </small>
-    </h3>
+          <%= link_to starred_account_path(@account)do %>
+            [starred]
+          <% end %>
+        </small>
+      </h3>
+    <% else %>
+      <h3>Starred tweets</h3>
+    <% end %>
 
     <% @tweets.each do |tweet| %>
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>

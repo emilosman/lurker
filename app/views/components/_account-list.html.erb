@@ -2,6 +2,9 @@
   <h1 class="d-none d-sm-block pt-1 mt-0">
     <%= link_to "Lurker", root_path %>
   </h1>
+  <h1 class="d-sm-none d-xs-block pt-1 mt-0 text-center">
+    <%= link_to "L", root_path %>
+  </h1>
   <% @accounts.each do |account| %>
     <div class="row py-4">
       <%= link_to account_path(account.id), class:'col-12 d-flex align-items-center' do %>
@@ -10,14 +13,22 @@
               class="rounded-circle
               <%= 'account-list__image--active' if @account && account.id == @account.id %>"
           >
-          <span class="badge badge-info account-list__badge">
-            <%= account.unread_count || 0%>
-          </span>
+
+          <% if account.unread_count && account.unread_count > 0 %>
+            <span class="badge badge-info account-list__badge">
+              <%= account.unread_count %>
+            </span>
+          <% end %>
         </div>
         <span class="d-none d-sm-block">
           <%= account.name.truncate(20) %>
         </span>
       <% end %>
+    </div>
+  <% end %>
+  <%= link_to new_account_path, class:'col-12 d-flex align-items-center' do %>
+    <div class="rounded-circle account-list__image mr-4">
+      +
     </div>
   <% end %>
 </div>
