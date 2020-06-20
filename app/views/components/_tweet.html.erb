@@ -24,12 +24,18 @@
 
         <div class="row">
           <div class="col">
-            <%= link_to tweet.url, target:'_blank' do %>
-              [open]
-            <% end %>
-            <%= link_to star_tweet_path(tweet), method:'post', remote: true do %>
-              [star]
-            <% end %>
+            <ul class="list-inline mb-0">
+              <li>
+                <%= link_to tweet.url, target:'_blank' do %>
+                  [open]
+                <% end %>
+              </li>
+              <li>
+                <%= link_to star_tweet_path(tweet), method:'post', remote: true do %>
+                  [star]
+                <% end %>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
