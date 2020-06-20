@@ -2,12 +2,33 @@
   <div class="col-12">
     <div class="card bg-dark mb-2">
       <div class="card-body">
-        <p class="card-text">
-          <%= tweet.full_text %>
-        </p>
-        <small>
+        <small class="d-block mb-2">
           <%= link_to tweet.tweeted_at, tweet.url, class:'info-link' %>
         </small>
+
+        <p class="card-text mb-3">
+          <%= tweet.full_text %>
+        </p>
+
+        <% if tweet.media.present? %>
+          <div class="row mb-2">
+            <% tweet.media[0].each do |url| %>
+              <div class="col">
+                <%= link_to url, target:"_blank" do %>
+                  <%= image_tag url, class:"tweet__image" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col">
+            <%= link_to star_tweet_path(tweet), method:'post', remote: true do %>
+              [star]
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

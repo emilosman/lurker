@@ -8,6 +8,10 @@ class Tweet
   field :tweeted_at, type: String
   field :tweeted_at, type: String
   field :read, type: Boolean, default: false
+  field :starred, type: Boolean, default: false
+  field :media, type: Array
+
+  scope :starred, ->{ where(starred: true) }
 
   belongs_to :account
 end

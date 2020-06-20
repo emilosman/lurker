@@ -1,9 +1,9 @@
 <div class="sticky-top">
-  <h1 class="d-none d-sm-block mt-2">
+  <h1 class="d-none d-sm-block pt-1 mt-0">
     <%= link_to "Lurker", root_path %>
   </h1>
   <% @accounts.each do |account| %>
-    <div class="row my-4">
+    <div class="row py-4">
       <%= link_to account_path(account.id), class:'col-12 d-flex align-items-center' do %>
         <div class="account-list__image mr-4">
           <img src="<%= account.profile_image_url %>"

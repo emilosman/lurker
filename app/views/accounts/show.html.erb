@@ -5,8 +5,18 @@
 
   <div class="col-10">
     <h3 class="mt-2">
-      <%= link_to @account.name, @account.url %>
+      <%= link_to @account.name, @account %>
+      <small>
+        <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
+          [refresh]
+        <% end %>
+
+        <%= link_to starred_account_path(@account)do %>
+          [starred]
+        <% end %>
+      </small>
     </h3>
+
     <% @tweets.each do |tweet| %>
       <%= render partial: "components/tweet", locals:{tweet: tweet} %>
     <% end %>

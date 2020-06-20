@@ -21,10 +21,10 @@ end
 
 client.get_all_tweets("emil_graphics")
 
-user_names = ['emil_graphics', 'BPD_GOD', 'bronzeagemantis']
+user_names = ['matthewthestoat']
 
 user_names.each do |user_name|
-  user = client.user(user_name)
+  user = CLIENT.user(user_name)
 
   account = Account.find_or_create_by(
     twitter_id: user.id
@@ -41,7 +41,7 @@ end
 
 account = Account.last
 
-tweets = client.get_all_tweets(account.screen_name)
+tweets = CLIENT.get_all_tweets(account.screen_name)
 
 tweets.each do |tw|
   tweet = Tweet.find_or_create_by(
