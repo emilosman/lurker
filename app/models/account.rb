@@ -24,7 +24,7 @@ class Account
         full_text: tw.attrs[:full_text],
         url: tw.url.to_s,
         tweeted_at: tw.created_at,
-        media: tw.media.map{|m| m.attrs[:media_url_https]} if tw.media.present?
+        media: ( tw.media.map{|m| m.attrs[:media_url_https]} if tw.media.present? )
       )
     end
   end
