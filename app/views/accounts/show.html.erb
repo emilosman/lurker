@@ -15,10 +15,18 @@
           <%= link_to starred_account_path(@account)do %>
             [starred]
           <% end %>
+
+          <%= link_to @account.url do %>
+            [open]
+          <% end %>
+
+          <%= link_to "" do %>
+            [remove]
+          <% end %>
         </small>
       </h3>
     <% else %>
-      <h3>Starred tweets</h3>
+      <h3 class="mt-4">Starred tweets</h3>
     <% end %>
 
     <% @tweets.each do |tweet| %>
