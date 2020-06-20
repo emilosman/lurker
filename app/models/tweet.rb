@@ -12,6 +12,7 @@ class Tweet
   field :media, type: Array
 
   scope :starred, ->{ where(starred: true) }
+  scope :unread, ->{ where(read: false) }
 
   belongs_to :account
 end

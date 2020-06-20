@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :accounts do
     member do
       get 'starred'
+      get 'unread'
       post 'refresh_tweets'
     end
   end

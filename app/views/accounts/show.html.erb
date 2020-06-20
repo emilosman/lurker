@@ -7,28 +7,39 @@
     <% if @account %>
       <h3 class="mt-4">
         <%= link_to @account.name, @account %>
-        <small>
+      </h3>
+      <ul class="list-inline">
+        <li>
           <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
             [refresh]
           <% end %>
-
+        </li>
+        <li>
           <%= link_to starred_account_path(@account)do %>
             [starred]
           <% end %>
-
+        </li>
+        <li>
+          <%= link_to unread_account_path(@account)do %>
+            [unread]
+          <% end %>
+        </li>
+        <li>
           <%= link_to @account.url do %>
             [open]
           <% end %>
-
+        </li>
+        <li>
           <%= link_to "" do %>
             [mark all read]
           <% end %>
-
+        </li>
+        <li>
           <%= link_to "" do %>
             [remove]
           <% end %>
-        </small>
-      </h3>
+        </li>
+      </ul>
     <% else %>
       <h3 class="mt-4">Starred tweets</h3>
     <% end %>
