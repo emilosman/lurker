@@ -1,5 +1,14 @@
 class AccountsController < ApplicationController
   before_action :get_account
+  before_action :authenticate_user
+
+  def authenticate_user
+    if Rails.env.production?
+      authenticate_or_request_with_http_basic do |name, password|
+        name == "test" && password == "lurker"
+      end
+    end
+  end
 
   def index;end
 
