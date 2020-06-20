@@ -10,6 +10,11 @@
       </h3>
       <ul class="list-inline">
         <li>
+          <%= link_to @account do %>
+            [all]
+          <% end %>
+        </li>
+        <li>
           <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
             [refresh]
           <% end %>
