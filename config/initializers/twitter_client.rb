@@ -1,8 +1,8 @@
 CLIENT = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "XtYb4bkw9gfLGFQLcx3HwDD9b"
-  config.consumer_secret     = "4pAWh2uaEaVARYnfWmewHPsLmK5LJcKvwpb75xAyTIzViHlXfC"
-  config.access_token        = "1099068037704155136-zuT7lvXvrSQBBx0rKDKlEpDPJAnjoC"
-  config.access_token_secret = "dE0uHSWOGpyNhe5vvx1YwNIAkuTiKGtI4yRLmvD3cQO6A"
+  config.consumer_key        = ENV['CONSUMER_KEY']
+  config.consumer_secret     = ENV['CONSUMER_SECRET']
+  config.access_token        = ENV['ACCESS_TOKEN']
+  config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
 
 def collect_with_max_id(collection=[], max_id=nil, &block)
