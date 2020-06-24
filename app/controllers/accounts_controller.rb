@@ -8,23 +8,22 @@ class AccountsController < ApplicationController
 
   def create
     if params[:username]
-      user = CLIENT.user(params[:username])
-
-      account = Account.find_or_create_by(
-        twitter_id: user.id
-      )
-
-      account.update_attributes(
-        name: user.name,
-        screen_name: user.screen_name,
-        twitter_id: user.id,
-        url: user.url.to_s,
-        profile_image_url: user.profile_image_url.to_s
-      )
-
-      account.fetch_tweets
-
-      redirect_to account
+      begin user = CLIENT.user(params[:username])
+        account = Account.find_or_create_by(
+          twitter_id: user.id
+        )
+        account.update_attributes(
+          name: user.name,
+          screen_name: user.screen_name,
+          twitter_id: user.id,
+          url: user.url.to_s,
+          profile_image_url: user.profile_image_url.to_s
+        )
+        account.fetch_tweets
+        redirect_to account
+      rescue
+        Rails.logger.info "not found"
+      end
     end
   end
   

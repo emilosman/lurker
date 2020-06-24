@@ -10,7 +10,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <%= label_tag :username, "Twitter username" %>
-          <%= text_field_tag :username, nil, class: "form-control", placeholder: "@" %>
+          <%= text_field_tag :username, nil, class: "form-control", placeholder: "@", required: true %>
         </div>
       </div>
       <%= submit_tag "Add", class: "btn btn-success" %>
