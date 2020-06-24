@@ -21,6 +21,8 @@ class AccountsController < ApplicationController
         url: user.url.to_s,
         profile_image_url: user.profile_image_url.to_s
       )
+
+      account.fetch_tweets
     end
   end
   
