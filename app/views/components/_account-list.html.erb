@@ -6,14 +6,10 @@
     <%= link_to "L", root_path %>
   </h1>
   <% @accounts.each do |account| %>
-    <div class="row py-2">
+    <div class="row py-1">
       <%= link_to account_path(account.id), class:'col-12 d-flex align-items-center' do %>
-        <div class="account-list__image mr-4">
-          <img src="<%= account.profile_image_url %>"
-              class="rounded-circle
-              <%= 'account-list__image--active' if @account && account.id == @account.id %>"
-          >
-
+        <div class="account-list__image mr-2 <%= 'account-list__image--active' if @account && account.id == @account.id %>">
+          <img src="<%= account.profile_image_url %>" class="rounded-circle">
           <% if account.unread_count && account.unread_count > 0 %>
             <span class="badge badge-info account-list__badge">
               <%= account.unread_count %>
