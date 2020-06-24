@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
   end
   
   def show
-    @tweets = @account.tweets.page params[:page]
+    @tweets = @account.tweets.chronological.page params[:page]
     @tweets.map{|a| a.update_attributes(read: true)}
     @account.update_attributes(
       unread_count: @account.tweets.where(read: false).count
@@ -33,7 +33,7 @@ class AccountsController < ApplicationController
   end
 
   def starred
-    @tweets = @account.tweets.starred.page params[:page]
+    @tweets = @account.tweets.chronological.starred.page params[:page]
     @tweets.map{|a| a.update_attributes(read: true)}
     @account.update_attributes(
       unread_count: @account.tweets.where(read: false).count
@@ -42,7 +42,7 @@ class AccountsController < ApplicationController
   end
 
   def unread
-    @tweets = @account.tweets.unread.page params[:page]
+    @tweets = @account.tweets.chronological.unread.page params[:page]
     @tweets.map{|a| a.update_attributes(read: true)}
     @account.update_attributes(
       unread_count: @account.tweets.where(read: false).count
@@ -51,7 +51,7 @@ class AccountsController < ApplicationController
   end
 
   def media
-    @tweets = @account.tweets.with_media.page params[:page]
+    @tweets = @account.tweets.chronological.with_media.page params[:page]
     @tweets.map{|a| a.update_attributes(read: true)}
     @account.update_attributes(
       unread_count: @account.tweets.where(read: false).count
