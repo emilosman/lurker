@@ -23,6 +23,8 @@ class AccountsController < ApplicationController
       )
 
       account.fetch_tweets
+
+      redirect_to account
     end
   end
   
