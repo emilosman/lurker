@@ -66,6 +66,8 @@ class AccountsController < ApplicationController
   def refresh_tweets
     if account = Account.find(params[:id])
       account.fetch_tweets
+
+      redirect_to account
     end
   end
 
