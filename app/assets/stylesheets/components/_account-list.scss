@@ -2,7 +2,9 @@
   position: relative;
   display: inline-block;
 
-  img {
+  img, svg {
+    height: 54px;
+    width: 54px;
     border: 3px solid transparent;
   }
 
@@ -11,6 +13,11 @@
       border-color: #0ce3ac;
     }
   }
+}
+
+.account-list__image--add-account {
+  color: #0ce3ac;
+  fill: #0ce3ac;
 }
 
 .account-list__badge {

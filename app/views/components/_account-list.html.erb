@@ -22,9 +22,14 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to new_account_path, class:'col-12 d-flex align-items-center' do %>
-    <div class="rounded-circle account-list__image mr-4">
-      +
-    </div>
-  <% end %>
+  <div class="row py-1">
+    <%= link_to new_account_path, class:'col-12 d-flex align-items-center' do %>
+      <div class="rounded-circle account-list__image account-list__image--add-account mr-4">
+        <%= svg "plus.svg" %>
+      </div>
+      <span class="d-none d-sm-block">
+        Add account
+      </span>
+    <% end %>
+  </div>
 </div>
