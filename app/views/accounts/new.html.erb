@@ -7,8 +7,12 @@
     <h3 class="mt-4">Add a new account</h3>
 
     <%= form_with(url: accounts_path, method: "post") do %>
-      <%= label_tag :username, "Twitter username:", class:"mr-2" %>
-      <%= text_field_tag :username, nil, placeholder: "@" %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= label_tag :username, "Twitter username:" %>
+          <%= text_field_tag :username, nil, class: "form-control", placeholder: "@" %>
+        </div>
+      </div>
       <%= submit_tag "Add", class: "btn btn-success" %>
     <% end %>
   </div>
