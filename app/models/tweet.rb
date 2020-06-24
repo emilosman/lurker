@@ -16,4 +16,8 @@ class Tweet
   scope :chronological, ->{ order(tweeted_at: :desc) }
 
   belongs_to :account
+
+  def unread
+    !read
+  end
 end
