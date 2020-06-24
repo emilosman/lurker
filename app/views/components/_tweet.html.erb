@@ -3,7 +3,10 @@
     <div class="card bg-dark mb-2 <%= 'border border-primary' if tweet.unread %>">
       <div class="card-body">
         <small class="d-block mb-2">
-          <%= link_to tweet.tweeted_at, tweet.url, class:'info-link' %>
+          <%= link_to "@#{tweet.account.name}", tweet.account %>
+          <span class="text-secondary">
+            <%= tweet.tweeted_at %>
+          </span>
         </small>
 
         <p class="card-text mb-3">
