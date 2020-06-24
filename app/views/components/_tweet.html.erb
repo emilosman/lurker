@@ -13,7 +13,7 @@
         <% if tweet.media.present? %>
           <div class="row">
             <% tweet.media.each do |url| %>
-              <div class="mb-2 col-sm-3 col-xs-6">
+              <div class="mb-2 <%= tweet.media.count == 1 ? "col-12" : "col-sm-3 col-xs-6" %>">
                 <%= link_to url, target:"_blank" do %>
                   <%= image_tag url, class:"tweet__image" %>
                 <% end %>
