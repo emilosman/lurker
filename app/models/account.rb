@@ -34,5 +34,9 @@ class Account
 
   def mark_all_read
     tweets.update_all(read: true)
+
+    self.update_attributes(
+      unread_count: tweets.where(read: false).count
+    )
   end
 end
