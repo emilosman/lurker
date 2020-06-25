@@ -7,7 +7,7 @@ class Account
   field :profile_image_url, type: String
   field :unread_count, type: Integer
   field :archived, type: Boolean, default: false
-  field :tags, type: Array
+  field :tags, type: Array, default: []
 
   has_many :tweets
   
