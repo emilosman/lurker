@@ -19,7 +19,7 @@
           <%= link_to '[all]', @account %>
         </li>
         <li>
-          <%= link_to '[refresh]', refresh_tweets_account_path(@account), method: 'post', remote: true %>
+          <%= link_to '[refresh]', account_path(@account, {refresh_tweets: true}), method: 'put', remote: true %>
         </li>
         <li>
           <%= link_to '[starred]', starred_account_path(@account) %>
@@ -39,7 +39,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to '[archive]', archive_account_path(@account), method: 'delete', remote: true %>
+          <%= link_to '[archive]', account_path(@account, {archive: true}), method: 'put', remote: true %>
         </li>
       </ul>
     <% else %>

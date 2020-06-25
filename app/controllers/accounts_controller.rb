@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
         account.fetch_tweets
         redirect_to account
       rescue
-        Rails.logger.info "not found"
+        Rails.logger.info "error"
       end
     end
   end
@@ -36,10 +36,15 @@ class AccountsController < ApplicationController
     )
   end
 
-  def archive
+  def update
     if @account
-      @account.update_attributes(archived: true)
-      redirect_to accounts_path
+      if params[:archive]
+        @account.update_attributes(archived: true)
+        redirect_to accounts_path
+      elsif params[:refresh_tweets]
+        account.fetch_tweets
+        redirect_to account
+      end
     end
   end
 
@@ -68,14 +73,6 @@ class AccountsController < ApplicationController
       unread_count: @account.tweets.where(read: false).count
     )
     render 'show'
-  end
-
-  def refresh_tweets
-    if account = Account.find(params[:id])
-      account.fetch_tweets
-
-      redirect_to account
-    end
   end
 
   private
