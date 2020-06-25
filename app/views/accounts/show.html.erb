@@ -37,6 +37,9 @@
           <%= link_to '[mark all read]', account_path(@account, {mark_all_read: true}), method: 'put', remote: true %>
         </li>
         <li>
+          <%= link_to '[tags]', tags_account_path(@account) %>
+        </li>
+        <li>
           <%= link_to '[archive]', account_path(@account, {archive: true}), method: 'put', remote: true %>
         </li>
       </ul>

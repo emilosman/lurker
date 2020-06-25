@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'starred'
       get 'unread'
       get 'media'
+      get 'tags'
     end
   end
 

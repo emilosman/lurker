@@ -47,6 +47,10 @@ class AccountsController < ApplicationController
       elsif params[:mark_all_read]
         @account.mark_all_read
         redirect_to @account
+      elsif params[:tags]
+        tags = params[:tags].split(',')
+        @account.update_attributes(tags: tags)
+        redirect_to @account
       end
     end
   end
@@ -78,9 +82,12 @@ class AccountsController < ApplicationController
     render 'show'
   end
 
+  def tags
+  end
+
   private
   def get_account
-    @accounts = Account.published.all
+    @accounts = Account.published.all.group_by(&:tags)
     @account = Account.find(params[:id]) if params[:id]
   end
 

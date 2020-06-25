@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-2">
+    <%= render partial: "components/account-list" %>
+  </div>
+
+  <div class="col-10">
+    <h3 class="mt-2">Tags for <%= link_to @account.name, @account %></h3>
+
+    <%= form_with(url: account_path(@account), method: "patch") do %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= label_tag :tags, "Tags" %>
+          <%= text_field_tag :tags, @account.tags.join(','), class: "form-control", placeholder: "art, news, other" %>
+          <small class="form-text">Separate with commas</small>
+        </div>
+      </div>
+      <%= submit_tag "Add", class: "btn btn-success" %>
+    <% end %>
+  </div>
