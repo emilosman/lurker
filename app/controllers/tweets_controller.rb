@@ -1,10 +1,10 @@
 class TweetsController < ApplicationController
   def starred
-    @tweets = Tweet.starred.page params[:page]
+    @tweets = Tweet.chronological.starred.page params[:page]
 
     @tweets.map{|a| a.update_attributes(read: true)}
 
-    @accounts = Account.all
+    @accounts = Account.published.all
 
     render 'accounts/show'
   end
