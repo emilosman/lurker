@@ -42,7 +42,7 @@ class AccountsController < ApplicationController
         @account.update_attributes(archived: true)
         redirect_to accounts_path
       elsif params[:refresh_tweets]
-        account.fetch_tweets
+        @account.fetch_tweets
         redirect_to account
       end
     end
