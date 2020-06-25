@@ -8,11 +8,9 @@
   <% @accounts.each do |account_group| %>
     <% if account_group[0].present? %>
       <div class="mt-4">
-        <% account_group[0].each do |tag| %>
-          <span class="badge badge-info mb-1">
-            <%= tag %>
-          </span>
-        <% end %>
+        <small class="text text-muted mb-1">
+          <%= account_group[0].join(',').upcase %>
+        </small>
       </div>
     <% end %>
 
