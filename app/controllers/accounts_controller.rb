@@ -17,7 +17,8 @@ class AccountsController < ApplicationController
           screen_name: user.screen_name,
           twitter_id: user.id,
           url: user.url.to_s,
-          profile_image_url: user.profile_image_url.to_s
+          profile_image_url: user.profile_image_url.to_s,
+          archived: false
         )
         account.fetch_tweets
         redirect_to account
@@ -33,6 +34,13 @@ class AccountsController < ApplicationController
     @account.update_attributes(
       unread_count: @account.tweets.where(read: false).count
     )
+  end
+
+  def archive
+    if @account
+      @account.update_attributes(archived: true)
+      redirect_to accounts_path
+    end
   end
 
   def starred
@@ -72,7 +80,7 @@ class AccountsController < ApplicationController
 
   private
   def get_account
-    @accounts = Account.all
+    @accounts = Account.published.all
     @account = Account.find(params[:id]) if params[:id]
   end
 

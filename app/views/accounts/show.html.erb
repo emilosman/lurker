@@ -16,34 +16,22 @@
       </h3>
       <ul class="list-inline">
         <li>
-          <%= link_to @account do %>
-            [all]
-          <% end %>
+          <%= link_to '[all]', @account %>
         </li>
         <li>
-          <%= link_to refresh_tweets_account_path(@account), method: 'post', remote: true do %>
-            [refresh]
-          <% end %>
+          <%= link_to '[refresh]', refresh_tweets_account_path(@account), method: 'post', remote: true %>
         </li>
         <li>
-          <%= link_to starred_account_path(@account)do %>
-            [starred]
-          <% end %>
+          <%= link_to '[starred]', starred_account_path(@account) %>
         </li>
         <li>
-          <%= link_to unread_account_path(@account)do %>
-            [unread]
-          <% end %>
+          <%= link_to '[unread]', unread_account_path(@account) %>
         </li>
         <li>
-          <%= link_to media_account_path(@account)do %>
-            [media]
-          <% end %>
+          <%= link_to '[media]', media_account_path(@account) %>
         </li>
         <li>
-          <%= link_to @account.url, target: '_blank' do %>
-            [open]
-          <% end %>
+          <%= link_to '[open]', @account.url, target: '_blank' %>
         </li>
         <li>
           <%= link_to "" do %>
@@ -51,9 +39,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to "" do %>
-            [archive]
-          <% end %>
+          <%= link_to '[archive]', archive_account_path(@account), method: 'delete', remote: true %>
         </li>
       </ul>
     <% else %>

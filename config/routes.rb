@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'unread'
       get 'media'
       post 'refresh_tweets'
+      delete 'archive'
     end
   end
 

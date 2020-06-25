@@ -6,8 +6,11 @@ class Account
   field :url, type: String
   field :profile_image_url, type: String
   field :unread_count, type: Integer
+  field :archived, type: Boolean, default: false
 
   has_many :tweets
+  
+  scope :published, ->{ where(archived: false) }
 
   def fetch_tweets
     tweets = CLIENT.get_all_tweets(self.screen_name)
