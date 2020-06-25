@@ -44,6 +44,9 @@ class AccountsController < ApplicationController
       elsif params[:refresh_tweets]
         @account.fetch_tweets
         redirect_to @account
+      elsif params[:mark_all_read]
+        @account.mark_all_read
+        redirect_to @account
       end
     end
   end

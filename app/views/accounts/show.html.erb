@@ -34,9 +34,7 @@
           <%= link_to '[open]', @account.url, target: '_blank' %>
         </li>
         <li>
-          <%= link_to "" do %>
-            [mark all read]
-          <% end %>
+          <%= link_to '[mark all read]', account_path(@account, {mark_all_read: true}), method: 'put', remote: true %>
         </li>
         <li>
           <%= link_to '[archive]', account_path(@account, {archive: true}), method: 'put', remote: true %>

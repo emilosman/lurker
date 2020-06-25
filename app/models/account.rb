@@ -31,4 +31,8 @@ class Account
       )
     end
   end
+
+  def mark_all_read
+    tweets.update_all(read: true)
+  end
 end
