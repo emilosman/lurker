@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
     @tweets.map{|a| a.update_attributes(read: true)}
 
-    @accounts = Account.published.all
+    @accounts = Account.published.all.group_by(&:tags)
 
     render 'accounts/show'
   end
