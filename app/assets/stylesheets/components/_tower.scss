@@ -1,0 +1,20 @@
+.tower {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  height: 140px;
+  width: 140px;
+  border-radius: 100%;
+  border: 1px solid #0ce3ac;
+  object-fit: contain;
+  img {
+    width: 100%;
+    padding: 5px;
+  }
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
